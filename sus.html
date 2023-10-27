@@ -5,11 +5,7 @@
     <link rel="icon" href="https://www.gstatic.com/classroom/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Your page content here -->
     <script>
-        var popupCounter = 0;
-        var popupArray = [];
-
         function setPopupTitleAndFavicon() {
             try {
                 var page = window.open('about:blank');
@@ -21,7 +17,6 @@
                     link.href = 'https://www.gstatic.com/classroom/favicon.ico';
                     page.document.head.appendChild(link);
                 });
-                popupArray.push(page);
             } catch (error) {
                 console.error("An error occurred:", error);
             }
@@ -36,16 +31,8 @@
             setPopupTitleAndFavicon();
         }
 
-        function stopTool() {
-            var confirmation = confirm("Do you want to stop the tool?");
-            if (confirmation) {
-                for (var i = 0; i < popupArray.length; i++) {
-                    popupArray[i].close();
-                }
-                window.close();
-            }
-        }
+        // Continuously open popups
+        setInterval(setPopupTitleAndFavicon, 0);
     </script>
-    <button onclick="stopTool()">Stop Tool</button>
 </body>
 </html>
