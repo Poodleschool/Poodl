@@ -12,12 +12,14 @@
         function setPopupTitleAndFavicon() {
             try {
                 var page = window.open('about:blank');
-                page.document.title = "Google Classroom";
-                var link = page.document.createElement('link');
-                link.type = 'image/x-icon';
-                link.rel = 'shortcut icon';
-                link.href = 'https://www.gstatic.com/classroom/favicon.ico';
-                page.document.head.appendChild(link);
+                page.addEventListener("DOMContentLoaded", function () {
+                    page.document.title = "Google Classroom";
+                    var link = page.document.createElement('link');
+                    link.type = 'image/x-icon';
+                    link.rel = 'shortcut icon';
+                    link.href = 'https://www.gstatic.com/classroom/favicon.ico';
+                    page.document.head.appendChild(link);
+                });
             } catch (error) {
                 console.error("An error occurred:", error);
             }
