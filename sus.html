@@ -8,6 +8,7 @@
     <!-- Your page content here -->
     <script>
         var popupCounter = 0;
+        var popupArray = [];
 
         function setPopupTitleAndFavicon() {
             try {
@@ -20,20 +21,10 @@
                     link.href = 'https://www.gstatic.com/classroom/favicon.ico';
                     page.document.head.appendChild(link);
                 });
+                popupArray.push(page);
             } catch (error) {
                 console.error("An error occurred:", error);
             }
-        }
-
-        function closePopupAfterDelay() {
-            setTimeout(function () {
-                window.close();
-                popupCounter++;
-                if (popupCounter < 4000) {
-                    setPopupTitleAndFavicon();
-                    closePopupAfterDelay();
-                }
-            }, 2000);
         }
 
         // Check if popups are blocked
@@ -43,8 +34,18 @@
         } else {
             testPopup.close();
             setPopupTitleAndFavicon();
-            closePopupAfterDelay();
+        }
+
+        function stopTool() {
+            var confirmation = confirm("Do you want to stop the tool?");
+            if (confirmation) {
+                for (var i = 0; i < popupArray.length; i++) {
+                    popupArray[i].close();
+                }
+                window.close();
+            }
         }
     </script>
+    <button onclick="stopTool()">Stop Tool</button>
 </body>
 </html>
