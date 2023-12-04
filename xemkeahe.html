@@ -10,7 +10,8 @@
     <button id="runScriptButton">Xemkea</button><br><b>Log:</b><br>
     <script>document.getElementById("runScriptButton").addEventListener("click", function () {
     var num = prompt("How many History Item(s) should I create?");
-    document.write("Xemkea method in progress");
+    var myParagraph = document.getElementById("myParagraph");
+myParagraph.innerHTML = "Xemkea method <strong>In progress...</strong>";
     if (num) {
         num = parseInt(num);
         var x = window.location.href;
@@ -20,7 +21,8 @@
         }
         
         alert("Xemkea Method History Eliminator Successful!\n" + window.location.href + "\nGoogle Classroom appears in your history " + num + (num == 1 ? " time." : " times."));
-        document.write("Xemkea method success");
+        var myParagraph = document.getElementById("myParagraph2");
+myParagraph.innerHTML = "Xemkea method <strong>Success!</strong>";
     } else {
         alert("Invalid input. Please try Me again.");
     }
