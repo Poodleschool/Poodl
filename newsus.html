@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>classroom</title>
+</head>
+<body>
+    <button id="runScriptButton">Flood History</button>
+    <script>document.getElementById("runScriptButton").addEventListener("click", function () {
+    var num = prompt("How many times do you want to flood the history?");
+    
+    if (num) {
+        num = parseInt(num);
+        var x = window.location.href;
+        
+        for (var i = 1; i <= num; i++) {
+            history.pushState({}, '', x + '?flood=' + i);
+        }
+        
+        alert("History Flooding Successful!\n" + window.location.href + "\nNow appears in your history " + num + (num == 1 ? " time." : " times."));
+    } else {
+        alert("Invalid input. Please try again.");
+    }
+});</script>
+</body>
+</html>
