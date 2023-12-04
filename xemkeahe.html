@@ -7,7 +7,7 @@
 <body>
     <img src='Nincompoop.jpg' width=20 height=21>
     <b>The XEMKEA Method</b><br>The History Eliminator<br>
-    <button id="runScriptButton">Xemkea</button><br><b>Log:</b><br>
+    <button id="runScriptButton">Xemkea</button><br><br>
     <b>If the Elimination is successful, you will see a popup with information</b><br>
     <script>document.getElementById("runScriptButton").addEventListener("click", function () {
     var num = prompt("How many History Item(s) should I create?");
@@ -21,7 +21,6 @@
         }
         
         alert("Xemkea Method History Eliminator Successful!\n" + window.location.href + "\nGoogle Classroom appears in your history " + num + (num == 1 ? " time." : " times."));
-        var myParagraph = document.getElementById("myParagraph2");
         alert("Invalid input. Please try Me again.");
     }
 });</script>
