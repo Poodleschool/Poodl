@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blocked</title>
+    <title>Classroom</title>
+    <link rel="icon" type="image/x-icon" href="https://gstatic.com/classroom/favicon.ico">
     <style>
-html {
+        html {
             height: 100%;
         }
 
@@ -201,140 +202,50 @@ html {
         .but:hover {
             color: #E1E9F0;
         }
+        .button4 {background-color: #e7e7e7; color: black;}
     </style>
 </head>
 <body>
-    <div id="code1">
-        <!-- Your first code snippet -->
-        <pre>
-            <!DOCTYPE HTML>
-            <html lang="en">
-            <script>
-            console.log(`
-            ██╗░░██╗███████╗██╗░░░░░██╗░░░░░░█████╗░██╗
-            ██║░░██║██╔════╝██║░░░░░██║░░░░░██╔══██╗██║
-            ███████║█████╗░░██║░░░░░██║░░░░░██║░░██║██║
-            ██╔══██║██╔══╝░░██║░░░░░██║░░░░░██║░░██║╚═╝
-            ██║░░██║███████╗███████╗███████╗╚█████╔╝██╗
-            ╚═╝░░╚═╝╚══════╝╚══════╝╚══════╝░╚════╝░╚═╝
-            It seems you have stumbled across the guide, Well. If you want to bypass block pages like this, Just Smack that bypass button. You dont know what your in for...
-            `);
-            function generateRandomLetter() {
-                const letters = 'fefewiuhofeoiuewhupiewfhyuweyidgygwquiqwghoiwjpewojfpwijfowejfiowehfiuwefhwoufwiojweoiufhewpfuhfhpeuiwhfweufhoewphweopufhweuifhweufhweoupfhweoiefhw';
-                const randomIndex = Math.floor(Math.random() * letters.length);
-                console.log(letters.charAt(randomIndex));
-            }
-            setInterval(generateRandomLetter, 1);
-            setInterval(displayASCIIArt, 3000);
-            </script>
-            <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-                <title>Blocked</title>
-                <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
-                <link href="//fonts.googleapis.com/css?family=Roboto:400,100,700,900" rel="stylesheet" type="text/css">
-                <style>
-                    html {
-                        height: 100%;
-                    }
-                    /* ... Rest of your styles ... */
-                </style>
-            </head>
-            <body>
-                <div class="outer">
-                    <div class="middle">
-                        <div class="content">
-                            <h1>
-                                <strong>
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                    Restricted
-                                </strong>
-                            </h1>
-                            <br />
-                            This website has been blocked by your administrator.
-                            <br /><img src="lock.png">
-                            <br /><button onclick="toggleCode()"><img src='bypass.png'></button>
-                        </div>
-                    </div>
-                </div>
-            </body>
-        </pre>
-    </div>
-
-    <div id="code2" style="display: none;">
-        <!-- Your second code snippet -->
-        <pre>
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Classroom</title>
-                <link rel="icon" type="image/x-icon" href="https://gstatic.com/classroom/favicon.ico">
-                <style>
-                    html {
-                        height: 100%;
-                    }
-                    /* ... Rest of your styles ... */
-                </style>
-            </head>
-            <body>
-                <center><img src='Nincompoop.jpg' width=100 height=101><br>
-                <strong><font color=#4BD6DC><font size=20><b>The XEMKEA Method</b><br>History Eliminator</font><font color=#4BD6DC>
-                
-                <button id="customizeButton" class=".button4">Customize</button><br><br>
-                
-                <button id="runScriptButton" class=".button4">Xemkea</button><br><br>
-                <b>If the Elimination is successful, you will see a popup with information</b><br>
-                
-                <script>
-                    document.getElementById("customizeButton").addEventListener("click", function () {
-                        var newTitle = prompt("Enter the new title:");
-                        var newFaviconURL = prompt("Enter the new favicon URL:");
-                        
-                        if (newTitle && newFaviconURL) {
-                            document.title = newTitle;
-                            var favicon = document.querySelector("link[rel='icon']") || document.createElement('link');
-                            favicon.type = 'image/x-icon';
-                            favicon.rel = 'icon';
-                            favicon.href = newFaviconURL;
-                            document.head.appendChild(favicon);
-                        }
-                    });
-                    
-                    document.getElementById("runScriptButton").addEventListener("click", function () {
-                        var num = prompt("How many History Item(s) should I create?");
-                        if (isNaN(num) || num === null || num === "") {
-                            alert('ErrCH68: Invalid input');
-                            return;
-                        }
-                        
-                        num = parseInt(num);
-                        alert('Xemkea method will start and begin progress when you click OK. Estimated time: 5 secs - 1 minute');
-                        var x = window.location.href;
-                        
-                        for (var i = 1; i <= num; i++) {
-                            history.pushState({}, '', x + '?flood=' + i);
-                        }
-                        
-                        alert("Xemkea Method History Eliminator Successful!\n\nGoogle Classroom appears in your history " + num + (num === 1 ? " time." : " times."));
-                    });
-                </script>
-            </body>
-        </pre>
-    </div>
-
+    <center><img src='Nincompoop.jpg' width=100 height=101><br>
+    <strong><font color=#4BD6DC><font size=20><b>The XEMKEA Method</b><br>History Eliminator<br></font><font color=#4BD6DC>
+    
+    <button id="customizeButton" class=".button4">Customize</button><br><br>
+    
+    <button id="runScriptButton" class=".button4">Xemkea</button><br><br>
+    <b>If the Elimination is successful, you will see a popup with information</b><br>
+    
     <script>
-        function toggleCode() {
-            var code1 = document.getElementById('code1');
-            var code2 = document.getElementById('code2');
-
-            if (code1.style.display === 'none') {
-                code1.style.display = 'block';
-                code2.style.display = 'none';
-            } else {
-                code1.style.display = 'none';
-                code2.style.display = 'block';
+        document.getElementById("customizeButton").addEventListener("click", function () {
+            var newTitle = prompt("Enter the new title:");
+            var newFaviconURL = prompt("Enter the new favicon URL:");
+            
+            if (newTitle && newFaviconURL) {
+                document.title = newTitle;
+                var favicon = document.querySelector("link[rel='icon']") || document.createElement('link');
+                favicon.type = 'image/x-icon';
+                favicon.rel = 'icon';
+                favicon.href = newFaviconURL;
+                document.head.appendChild(favicon);
             }
-        }
+        });
+        
+        document.getElementById("runScriptButton").addEventListener("click", function () {
+            var num = prompt("How many History Item(s) should I create?");
+            if (isNaN(num) || num === null || num === "") {
+                alert('ErrCH68: Invalid input');
+                return;
+            }
+            
+            num = parseInt(num);
+            alert('Xemkea method will start and begin progress when you click OK. Estimated time: 5 secs - 1 minute');
+            var x = window.location.href;
+            
+            for (var i = 1; i <= num; i++) {
+                history.pushState({}, '', x + '?flood=' + i);
+            }
+            
+            alert("Xemkea Method History Eliminator Successful!\n\nGoogle Classroom appears in your history " + num + (num === 1 ? " time." : " times."));
+        });
     </script>
 </body>
 </html>
