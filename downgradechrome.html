@@ -1,0 +1,15 @@
+<script>
+  function start() {
+    let startBtn = document.getElementById("startBtn");
+    startBtn.innerText = "Beginning the WH4LE exploit...";
+    startBtn.disabled = "true";
+startBtn.outerHTML = startBtn.outerHTML + '<img id="startBtnSpinner" style="border:unset;width:20px;height:20px;padding:0;margin:0;transform:translateY(5px);margin-left:2px;" src="loading.gif">'
+    let randomTime = Math.random() * 5000 + 5000;
+    setTimeout(() => {
+        alert("The WH4LE exploit has successfully begun. Please proceed to Step 2.");
+        startBtn.innerText = "Please proceed to Step 2.";
+        document.getElementById("afterStep1").style.display = "block";
+	document.getElementById("startBtnSpinner").remove();
+    }, randomTime);
+}
+</script>
