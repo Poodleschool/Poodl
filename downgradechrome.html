@@ -1,10 +1,284 @@
+<button onclick="start()" id="startBtn">Click me!</button>
 <script>
-alert("We are downgrading chrome");
+// check if on cros
+let isOnCros = navigator.userAgent.toLowerCase().includes("cros");
+if(!isOnCros) {
+    let random = Math.floor(Math.random() * 2);
+    if(random === 1) {
+        document.getElementById("wys").innerHTML = "IM A SKID";/*yes i am*/
+        let style = document.createElement("style");
+        style.innerHTML = `
+        #wys::before {
+        position: absolute;
+        content: "IM A SKID";
+        transform: translate(-10px, -10px);
+        color: #00f3ff;
+        z-index: 2;
+        text-shadow: 5px 5px 0 rgb(0 177 255);
+        }
+        #wys::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        content: "IM A SKID";
+        transform: translate(10px, 10px);
+        color: #0072ff;
+        z-index: -1;
+        text-shadow: 5px 5px 0 rgb(0 97 255);
+        }
+        `;
+        document.head.append(style);
+    } else {
+        document.getElementById("wys").innerHTML = "YOURE A SKID";
+        let style = document.createElement("style");
+        style.innerHTML = `
+        #wys::before {
+        position: absolute;
+        content: "YOURE A SKID";
+        transform: translate(-10px, -10px);
+        color: #00f3ff;
+        z-index: 2;
+        text-shadow: 5px 5px 0 rgb(0 177 255);
+        }
+        #wys::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        content: "YOURE A SKID";
+        transform: translate(10px, 10px);
+        color: #0072ff;
+        z-index: -1;
+        text-shadow: 5px 5px 0 rgb(0 97 255);
+        }
+        `;
+        document.head.append(style);
+    }
+}
 
-let randomTime = Math.random() * 5000 + 5000;
-setTimeout(() => {
-    alert("Finished.");
-    window.close();
-}, randomTime);
+function start() {
+    let startBtn = document.getElementById("startBtn");
+    startBtn.innerText = "Beginning the WH4LE exploit...";
+    startBtn.disabled = "true";
+startBtn.outerHTML = startBtn.outerHTML + '<img id="startBtnSpinner" style="border:unset;width:20px;height:20px;padding:0;margin:0;transform:translateY(5px);margin-left:2px;" src="loading.gif">'
+    let randomTime = Math.random() * 5000 + 5000;
+    setTimeout(() => {
+        alert("The WH4LE exploit has successfully begun. Please proceed to Step 2.");
+        startBtn.innerText = "Please proceed to Step 2.";
+        document.getElementById("afterStep1").style.display = "block";
+	document.getElementById("startBtnSpinner").remove();
+    }, randomTime);
+}
 
+function fileBtn() {
+    let fileButton = document.getElementById("file-btn");
+    fileButton.disabled = "true";
+    fileButton.innerText = "Please read the following, then proceed to the next step.";
+    document.getElementById("final-steps").style.display = "block";
+}
+
+function openDebug(video) {
+    let win = window.open("about:blank", "", "popup");
+    let html = "";
+    if(!isOnCros) {
+        html = "<title>404 Not Found</title><h1>Error: Not Found</h1><p>The requested URL <code>chromite/lib/paygen/testdata/paygen.json</code> was not found on this server.</p>";
+    } else {
+    html = `
+    <!doctype html>
+    <html>
+    <head>
+    <title>ChromeOS Debug Menu</title>
+    <style>
+    * {
+        font-family: monospace;
+    }
+    #menu button {
+        padding-left: 5px;
+    }
+    .h2 {
+        font-size: 20px;
+        padding-right: 3px;
+    }
+    </style>
+    </head>
+    <body>
+    <h1>ChromeOS Debug Menu</h1>
+    <div id="signinBox">
+    <hr>
+    <span>User: <input id="un"></span>
+    <br>
+    <br>
+    <span>Pass: <input id="pw" type="password"></span>
+    <br>
+    <br>
+    <button onclick="signIn()">Sign In</button>
+    <p style="color:red;display:none" id="error">Incorrect username or password.</p>
+    <hr>
+    <p><i>If you are not a Google employee and have opened this window on accident, close it now. This window type is for debugging purposes only. Using this without proper authorization violates Google's <a href="https://www.google.com/accounts/TOS">Terms of Service.</a></i></p>
+    </div>
+    <div id="menu" style="display:none">
+    <hr>
+    <p>Welcome, Matthew Smith.</p>
+    <hr>
+    <b class="h2">Device -</b>
+    <button onclick="troll('updates')">Freeze updates</button>
+    <button onclick="troll('policies')">Edit policies</button>
+    <button onclick="troll('unenroll')">Unenroll*</button>
+    <button onclick="troll('crostini')">Enable crostini</button>
+    <button onclick="troll('devmode')">Unblock devmode*</button>
+    <button onclick="troll('wp')">Disable WP*</button>
+    <button onclick="troll('crash')">Crash</button>
+    <button onclick="troll('brick')">Softbrick</button>
+    <br>
+    <span>*requires powerwash</span>
+    <br>
+    <br>
+    <b class="h2">Apps/Extensions -</b>
+    <input id="extId" placeholder="Extension id"> 
+    <button onclick="troll('install')">Install</button>
+    <button onclick="troll('adminInstall')">Install as admin</button>
+    <button onclick="troll('uninstall')">Uninstall</button>
+    <button onclick="troll('disable')">Disable</button>
+    <button onclick="troll('enable')">Enable</button>
+    <button onclick="troll('steam')">Install steam</button>
+    <br>
+    <br>
+    <b class="h2">Flags -</b>
+    <input id="extId" placeholder="Flag name"> 
+    <button onclick="troll('flagsEnable')">Enable*</button>
+    <button onclick="troll('flagsDisable')">Disable*</button>
+    <br>
+    <span>*requires reboot</span>
+    <br>
+    <br>
+    <b class="h2">OS -</b>
+    <button onclick="troll('cros81')">Downgrade to ChromeOS v81*</button>
+    <button onclick="troll('win11')">Upgrade to Windows 11*</button>
+    <button onclick="troll('debian')">Upgrade to Debian*</button>
+    <button onclick="troll('shimmer')">Flash SH1MMER to Internal Storage*</button>
+    <br>
+    <span>*requires powerwash</span>
+    <br>
+    <br>
+    <button id="closeBtn">Close</button>
+    </div>
+    <div id="debugError" style="display: none">
+    <hr>
+    <span style="color: red">ChromeOS Debug Menu has encountered an error. Please try again in a few minutes.</span>
+    <br>
+    <br>
+    <button onclick="retry()">Retry</button>
+    <hr>
+    </div>
+    <script>
+    let hasWatchedVideo = ${video};
+    if(!hasWatchedVideo) {
+        document.addEventListener("click", () => {close()}, false);
+    }
+    document.getElementById("closeBtn").addEventListener("click", () => {close()}, false);
+    let user = "Matthew.Smith@google.com";
+    let pass = "h@Jm#*-_@[}k|m@JmWMO^S./;kQmiw/?*nES3_TADC,&:@|\S]/kW;Q}M|k?";
+    function signIn() {
+        if(document.getElementById("un").value === user && document.getElementById("pw").value === pass) {
+            document.getElementById("signinBox").style.display = "none";
+            document.getElementById("menu").style.display = "block";
+        } else {
+            document.getElementById("error").style.display = "block";
+        }
+    }
+    let hasHadError = false;
+    function troll(num) {
+        if(hasHadError) {
+            switch(num) {
+                case "updates":
+                alert("Updates successfully frozen.")
+                break;
+                case "policies":
+                alert("Go to chrome://policy, there should now be an Edit button. If not, restart your Chromebook.");
+                break;
+                case "unenroll":
+                alert("Powerwash your Chromebook. check_enrollment has been set to 0. All user data will be saved.");
+                break;
+                case "cros81":
+                alert("Powerwash your Chromebook. It'll reboot into ChromeOS v81. All user data will be saved.");
+                break;
+                case "win11":
+                alert("Powerwash your Chromebook. It'll reboot into Windows 11. All user data will be saved.");
+                break;
+                case "shimmer":
+                alert("Powerwash your Chromebook. It'll reboot into SH1MMER. All user data will be saved.");
+                break;
+                case "debian":
+                alert("Powerwash your Chromebook. It'll reboot into Debian. All user data will be saved.");
+                break;
+                case "flagsEnable":
+                alert("Restart your Chromebook. The selected flag will be applied.");
+                break;
+                case "flagsDisable":
+                alert("Restart your Chromebook. The selected flag will be disabled.");
+                break;
+                case "devmode":
+                alert("Powerwash your Chromebook. block_devmode has been set to 0. All user data will be saved.");
+                break;
+                case "wp":
+                alert("Error disabling write protection. Write protection has been enabled indefinitely.");
+                break;
+                case "brick":
+                alert("Powerwash your Chromebook within the next 5 minutes. It'll be soft-bricked. All user data will not be saved.");
+                break;
+                case "crostini":
+                case "crash":
+                document.getElementById("debugError").style.display = "block";
+                document.getElementById("menu").style.display = "none";
+                break;
+                case "install":
+                alert("The specified extension has been installed. It may not show up, but it should within the hour.");
+                break;
+                case "adminInstall":
+                alert("The specified extension has been installed as an admin extension. It may not show up, but it should within the hour.");
+                break;
+                case "uninstall":
+                alert("The specified extension has been uninstalled. It may still show up, but it should disappear within the hour.");
+                break;
+                case "disable":
+                alert("The specified extension has been disabled. It may still show as enabled, but it should show as disabled within the hour.");
+                break;
+                case "enable":
+                alert("The specified extension has been enabled. It may still show as disabled, but it should show as enabled within the hour.");
+                break;
+                case "steam":
+                alert("If you upgrade to Windows 11, Steam will be pre-installed.");
+                break;
+            }
+        } else {
+            document.getElementById("debugError").style.display = "block";
+            document.getElementById("menu").style.display = "none";
+            hasHadError = true;
+        }
+    }
+    function retry() {
+        document.getElementById("debugError").style.display = "none";
+        document.getElementById("menu").style.display = "block";
+    }
+    <\/script>
+    </body>
+    </html>
+    `;
+    if(location.origin !== 'https://whale.mom' || location.origin !== "https://whale.x10.mx") {
+    html = "<title>Authorization Error</title><h1>Authorization Error</h1><p>This device is not authorized to open the ChromeOS Debug Menu.</p>";
+    }
+    }
+    win.document.write(html);
+}
+
+// create filesystem uri thats whales chromeos later
+function onInitFs(fs) {
+fs.root.getFile("WH4LE.html", {create: true}, (file) => {
+let blob = new Blob(["<script>location.href='https://google.com'<\/script>"]);
+  file.createWriter(function (writer) {
+    writer.write(blob);
+  });
+});
+}
+
+try { window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onInitFs); } catch { alert("Couldn't request filesystem! Are you on ChromeOS?") }/*seems legit*/
 </script>
